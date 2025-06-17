@@ -9,13 +9,22 @@ import {
 } from 'react-native';
 import { style } from './styles';
 import { themas } from "../../global/themes";
-import {MaterialIcons} from '@expo/vector-icons';
-import AppNavigation from "../AppNavigation";
+import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { Input } from "../../components/inputs";
 
+// Defina seu RootStackParamList, deve ser o mesmo que em AppNavigation.tsx
+type RootStackParamList = {
+  Login: undefined;
+  Cadastro: undefined;
+  // Home será adicionado no próximo passo
+  Home: undefined;
+};
 
-export default function Login() {
-    const navigation = useNavigation();
+type LoginScreenProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
+
+export default function Login({ navigation }: LoginScreenProps) {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
@@ -24,7 +33,9 @@ export default function Login() {
           if (!email || !senha) {
             return Alert.alert('Preencha todos os campos');
           }
-          Alert.alert('Logado com sucesso!!!');
+          Alert.alert('Logado com sucesso!!!', "", [
+            { text: "OK", onPress: () => navigation.navigate("Home") } //
+          ]);
         } catch (error) {
           console.log('Erro ao logar:');
         }
@@ -34,6 +45,8 @@ export default function Login() {
     <View style={style.container}>
       <View style={style.boxTop}>
         <Image source={require('../../assets/login-96.png')} />
+        {/* Chame o componente Input aqui, conforme o slide */}
+        <Input /> {/* */}
         <Text>Bem Vindo!</Text>
       </View>
       <View style={style.boxMid}>
@@ -60,16 +73,14 @@ export default function Login() {
     </View>
 
     <View style={style.boxBottom}>
-  <TouchableOpacity style={style.button} onPress={getLogin}>
-    <Text>Entrar</Text>
-  </TouchableOpacity>
+      <TouchableOpacity style={style.button} onPress={getLogin}>
+        <Text>Entrar</Text>
+      </TouchableOpacity>
 
-  {/* Link para cadastro */}
-  {/* Link para a tela de Cadastro */}
-  <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}>
-    <Text>Não tem conta? Cadastre-se aqui!</Text>
-  </TouchableOpacity>
-</View>
+      <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}>
+        <Text>Não tem conta? Cadastre-se aqui!</Text>
+      </TouchableOpacity>
+    </View>
   </View>
 );
 }

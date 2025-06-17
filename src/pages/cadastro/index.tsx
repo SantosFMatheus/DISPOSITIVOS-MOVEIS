@@ -8,18 +8,29 @@ import {
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { style } from "./styles";
+// Importações necessárias para tipagem da navegação
+import { NativeStackScreenProps } from "@react-navigation/native-stack"; // Adicionado para tipar o navigation
+import { RootStackParamList } from "../AppNavigation"; // Certifique-se de que este caminho está correto, dois níveis acima
 
-export default function Cadastro() {
+// Define o tipo das propriedades para a tela de Cadastro
+type CadastroScreenProps = NativeStackScreenProps<RootStackParamList, 'Cadastro'>; //
+
+// Adicione '{ navigation }' como uma prop tipada para o componente Cadastro
+export default function Cadastro({ navigation }: CadastroScreenProps) { //
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
   function handleCadastro() {
     if (!nome || !email || !senha) {
+      // Use "Erro" como título para consistência com o exemplo anterior
       return Alert.alert("Erro", "Preencha todos os campos");
     }
 
-    Alert.alert("Cadastro realizado com sucesso!");
+    // Alerta de sucesso com navegação para a tela Home
+    Alert.alert("Cadastro realizado com sucesso!", "", [
+      { text: "OK", onPress: () => navigation.navigate("Home") } //
+    ]);
     console.log("Cadastro:", nome, email, senha);
   }
 

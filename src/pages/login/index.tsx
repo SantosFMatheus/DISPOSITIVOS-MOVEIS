@@ -12,17 +12,10 @@ import { themas } from "../../global/themes";
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Input } from "../../components/inputs";
-import { DrawerScreenProps } from "@react-navigation/drawer";
-import { RootStackParamList } from '../AppNavigation';
+import { Input } from "../../components/inputs"; // Importe o componente Input
 
-// Defina seu RootStackParamList, deve ser o mesmo que em AppNavigation.tsx
-type RootStackParamList = {
-  Login: undefined;
-  Cadastro: undefined;
-  // Home será adicionado no próximo passo
-  Home: undefined;
-};
+// Importe a RootStackParamList exportada de AppNavigation.tsx
+import { RootStackParamList } from "../AppNavigation"; // Caminho correto para importação
 
 type LoginScreenProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
@@ -47,8 +40,7 @@ export default function Login({ navigation }: LoginScreenProps) {
     <View style={style.container}>
       <View style={style.boxTop}>
         <Image source={require('../../assets/login-96.png')} />
-        {/* Chame o componente Input aqui, conforme o slide */}
-        <Input /> {/* */}
+        <Input />
         <Text>Bem Vindo!</Text>
       </View>
       <View style={style.boxMid}>

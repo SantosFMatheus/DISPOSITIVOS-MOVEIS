@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import {
-  Text,
-  View,
-} from 'react-native';
+// src/pages/home/index.tsx
+import React from "react";
+import { View, Text } from "react-native";
 import { style } from './styles';
+import Menu from '../../components/menu/Menu'; // Importa o componente Menu
 
 export default function Home() {
   return (
     <View style={style.container}>
-      <Text>Home</Text>
+      <Menu /> {/* Renderiza o componente Menu aqui */}
+      <Text>Conteúdo da Home</Text> {/* Adicione qualquer conteúdo adicional para a tela Home */}
     </View>
   );
 }

@@ -5,9 +5,12 @@ import Cadastro from './cadastro/index';
 import Home from './home/index';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-type RootStackParamList = {
+// 1. Adicione 'export' aqui
+// 2. Adicione 'Home: undefined;' à lista de rotas
+export type RootStackParamList = {
   Login: undefined;
   Cadastro: undefined;
+  Home: undefined; // <-- Adicione esta linha
 };
 
 // Aplique o tipo no Stack Navigator

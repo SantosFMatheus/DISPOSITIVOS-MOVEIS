@@ -13,6 +13,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Input } from "../../components/inputs";
+import { DrawerScreenProps } from "@react-navigation/drawer";
+import { RootStackParamList } from '../AppNavigation';
 
 // Defina seu RootStackParamList, deve ser o mesmo que em AppNavigation.tsx
 type RootStackParamList = {

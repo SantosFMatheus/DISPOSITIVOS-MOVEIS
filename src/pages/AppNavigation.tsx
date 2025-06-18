@@ -1,19 +1,24 @@
+// src/pages/AppNavigation.tsx
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Login from './login/index';
 import Cadastro from './cadastro/index';
 import Home from './home/index';
+import ParqueDetails from './parqueDetails/index'; // Nova tela
+import Agendamento from './agendamento/index'; // Nova tela
+import MeusAgendamentos from './meusAgendamentos/index'; // Nova tela
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// 1. Adicione 'export' aqui
-// 2. Adicione 'Home: undefined;' à lista de rotas
 export type RootStackParamList = {
   Login: undefined;
   Cadastro: undefined;
-  Home: undefined; // <-- Adicione esta linha
+  Home: undefined;
+  ParqueDetails: undefined; // Nova rota
+  Agendamento: undefined; // Nova rota
+  MeusAgendamentos: undefined; // Nova rota
 };
 
-// Aplique o tipo no Stack Navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function AppNavigation() {
@@ -23,6 +28,9 @@ export default function AppNavigation() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="ParqueDetails" component={ParqueDetails} />
+        <Stack.Screen name="Agendamento" component={Agendamento} />
+        <Stack.Screen name="MeusAgendamentos" component={MeusAgendamentos} />
       </Stack.Navigator>
     </NavigationContainer>
   );

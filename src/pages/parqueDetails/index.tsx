@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { style } from './styles';
-import { useNavigation, NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useNavigation } from "@react-navigation/native"; // Correto: useNavigation vem de @react-navigation/native
+import { NativeStackScreenProps } from "@react-navigation/native-stack"; 
 import { RootStackParamList } from '../AppNavigation';
 import { MaterialIcons } from '@expo/vector-icons';
 import { themas } from '../../global/themes';

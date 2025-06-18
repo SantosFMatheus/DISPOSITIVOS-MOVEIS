@@ -29,7 +29,7 @@ export default function Cadastro({ navigation }: CadastroScreenProps) { //
 
     // Alerta de sucesso com navegação para a tela Home
     Alert.alert("Cadastro realizado com sucesso!", "", [
-      { text: "OK", onPress: () => navigation.navigate("Home") } //
+      { text: "OK", onPress: () => navigation.navigate("ParqueDetails") } //
     ]);
     console.log("Cadastro:", nome, email, senha);
   }

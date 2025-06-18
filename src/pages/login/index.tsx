@@ -29,7 +29,7 @@ export default function Login({ navigation }: LoginScreenProps) {
             return Alert.alert('Preencha todos os campos');
           }
           Alert.alert('Logado com sucesso!!!', "", [
-            { text: "OK", onPress: () => navigation.navigate("Home") } //
+            { text: "OK", onPress: () => navigation.navigate("ParqueDetails") } //
           ]);
         } catch (error) {
           console.log('Erro ao logar:');
